@@ -1,0 +1,130 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                         Hfx61.mq5 |
+//|                    https://www.forexroboteasy.com                |
+//|                                         Forex Robot Easy Team    |
+//|                                                                  |
+//|        Terms of Reference for Writing Code for Product HFX61      |
+//|                                                                  |
+//|    Description: This Expert Advisor is designed for early trend   |
+//|                 detection in the Forex market. It scans all      |
+//|                 potential early trends across all timeframes,     |
+//|                 focusing on the M15 timeframe. It predicts the    |
+//|                 direction of the market price using built-in     |
+//|                 indicators and oscillators. In case of a failed  |
+//|                 early trend, it incorporates a flat lot hedge    |
+//|                 with controlled order distance for risk          |
+//|                 management. It also includes an AUTO Trade       |
+//|                 Setting feature to automatically open positions. |
+//|                                                                  |
+//|    Developer: Forex Robot Easy Team                               |
+//|    Website:   https://www.forexroboteasy.com                      |
+//|                                                                  |
+//|    Last Updated: 2022/01/01                                      |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                        Expert Advisor Parameters                  |
+//+------------------------------------------------------------------+
+input bool AutoTradeSetting = true; // Enable/Disable AUTO Trade Setting
+
+//+------------------------------------------------------------------+
+//|                      Expert Advisor Initialization                |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize necessary variables and indicators
+    // Set default position opening settings as specified in the product description
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                    Expert Advisor Start Function                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Early trend detection logic
+
+    // If trend is detected
+    if (TrendDetected)
+    {
+        // Open position based on trend direction
+        if (AutoTradeSetting)
+        {
+            // Calculate lot size and order distance for risk management
+            double lotSize = CalculateLotSize();
+            double orderDistance = CalculateOrderDistance();
+
+            // Open position with calculated lot size and order distance
+            OpenPosition(lotSize, orderDistance);
+        }
+    }
+    else
+    {
+        // Failed early trend detected
+
+        // Hedge position with flat lot and controlled order distance
+        HedgePosition(flatLotSize, controlledOrderDistance);
+    }
+}
+
+//+------------------------------------------------------------------+
+//|              Calculate Lot Size for Risk Management               |
+//+------------------------------------------------------------------+
+double CalculateLotSize()
+{
+    // Calculate lot size based on risk management strategy
+
+    return lotSize;
+}
+
+//+------------------------------------------------------------------+
+//|          Calculate Order Distance for Risk Management             |
+//+------------------------------------------------------------------+
+double CalculateOrderDistance()
+{
+    // Calculate order distance based on risk management strategy
+
+    return orderDistance;
+}
+
+//+------------------------------------------------------------------+
+//|                Open Position with Given Parameters                |
+//+------------------------------------------------------------------+
+void OpenPosition(double lotSize, double orderDistance)
+{
+    // Open position with given lot size and order distance
+
+    // ... Code to open position ...
+
+    // ... Code to handle position opening errors ...
+}
+
+//+------------------------------------------------------------------+
+//|              Hedge Position with Given Parameters                 |
+//+------------------------------------------------------------------+
+void HedgePosition(double lotSize, double orderDistance)
+{
+    // Hedge position with given lot size and order distance
+
+    // ... Code to hedge position ...
+
+    // ... Code to handle hedging errors ...
+}
+
+//+------------------------------------------------------------------+
+//|                  Expert Advisor Deinitialization                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Perform necessary cleanup and deinitialization tasks
+}
+
+//+------------------------------------------------------------------+
+//|                   Expert Advisor Helper Functions                 |
+//+------------------------------------------------------------------+
+// ... Additional helper functions as needed ...
+
+//+------------------------------------------------------------------+
